@@ -1,0 +1,35 @@
+#include "zamowienie.h"
+#include <string>
+
+Zamowienie::Zamowienie()
+{
+
+}
+
+void Zamowienie::dodaj_zamowienie(Klient &klient, const vector<Produkty> &produkt)
+{
+    Zamowienie zamowienie;
+    string nazwa;
+    cout << "Podaj nazwe produktu: ";
+    cin.ignore();
+    getline(cin, nazwa);
+
+    for(int i = 0; i < produkt.size(); i++) {
+        if(produkt[i].nazwa == nazwa) {
+            zamowienie.nazwa = produkt;
+            break;
+        }
+    }
+
+    cout << "Podaj ilosc: ";
+    cin >> zamowienie.ilosc;
+    cout << "Podaj metode zaplaty: ";
+    cin >> zamowienie.metoda;
+    cout << "Podaj date zamowienia: ";
+    cin.ignore();
+    getline(cin, zamowienie.data);
+
+    zamowienie.cenatotalna = zamowienie.produkt.cena * zamowienie.ilosc * (1 + zamowienie.produkty.wat);
+
+    klient.zamowienie.push_back(zamowienie)
+}
